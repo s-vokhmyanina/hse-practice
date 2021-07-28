@@ -2,10 +2,10 @@ package LibACT4E;
 
 import java.util.Iterator;
 
-public interface EnumerableSet<E> extends Setoid<E> {
-    Iterator<E> elements();
+public interface EnumerableSet<T> extends Setoid<T> {
+    Iterator<T> elements();
 
-    default Iterator<E> iterator() {
+    default Iterator<T> iterator() {
         return elements();
     }
 }

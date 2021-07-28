@@ -2,6 +2,6 @@ package LibACT4E;
 
 import java.util.List;
 
-public interface SetUnion {
-    List<Setoid> components();
+public interface SetUnion<T> {
+    List<Setoid<T>> components();
 }

@@ -1,8 +1,8 @@
 package LibACT4E;
 
-public interface FiniteMap extends Mapping {
-    FiniteSet source();
+public interface FiniteMap<T> extends Mapping<T> {
+    FiniteSet<T> source();
 
-    FiniteSet target();
+    FiniteSet<T> target();
 
 }

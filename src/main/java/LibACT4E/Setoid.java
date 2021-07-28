@@ -2,19 +2,19 @@ package LibACT4E;
 
 import java.util.Map;
 
-public interface Setoid<E> extends Iterable<E> {
-    boolean contains(E x);
+public interface Setoid<T> extends Iterable<T> {
+    boolean contains(T x);
 
-    default boolean equals(E x, E y) {
+    default boolean equals(T x, T y) {
         return x.equals(y);
     }
 
-    default boolean apart(E x, E y) {
+    default boolean apart(T x, T y) {
         return !x.equals(y);
     }
 
     //TODO: Подумать
-    Map<String, E> save(E x);
+    Map<String, T> save(T x);
 
-    E load(Map<String, E> concreteRealization);
+    T load(Map<String, T> concreteRealization);
 }

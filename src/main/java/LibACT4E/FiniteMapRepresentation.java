@@ -1,9 +1,19 @@
 package LibACT4E;
 
+import lombok.Setter;
+import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
-public interface FiniteMapRepresentation {
-    FiniteMap load(FiniteMap data);
+import java.util.List;
 
-    FiniteMap save(@NotNull FiniteMap finiteMap);
+public interface FiniteMapRepresentation<T> {
+    FiniteMap<T> load(FiniteMapRepresentation.FiniteMapDto<T> data);
+
+    FiniteMapRepresentation.FiniteMapDto<T> save(@NotNull FiniteMap<T> finiteMap);
+
+    @Setter
+    @Accessors(chain = true)
+    class FiniteMapDto<T> {
+        public List<T> elements;
+    }
 }

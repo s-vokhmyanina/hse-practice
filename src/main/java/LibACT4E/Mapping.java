@@ -1,11 +1,11 @@
 package LibACT4E;
 
-public interface Mapping<E> {
-    Setoid source();
+public interface Mapping<T> {
+    Setoid<T> source();
 
-    Setoid target();
+    Setoid<T> target();
 
-    private E __call__(E a) {
+    private T __call__(T a) {
         return a;
     }
 }
