@@ -5,7 +5,7 @@ public interface Mapping<T> {
 
     Setoid<T> target();
 
-    private T __call__(T a) {
+    private T call(T a) {
         return a;
     }
 }

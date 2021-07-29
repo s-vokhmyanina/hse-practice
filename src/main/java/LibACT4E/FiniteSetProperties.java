@@ -1,13 +1,22 @@
 package LibACT4E;
 
-public interface FiniteSetProperties<T> {
-    boolean is_subset(FiniteSet<T> a, FiniteSet<T> b);
+import com.google.common.collect.Lists;
 
-    default boolean equal(FiniteSet<T> a, FiniteSet<T> b) {
-        return is_subset(a, b) && is_subset(b, a);
+import java.util.List;
+
+public class FiniteSetProperties {
+
+    public <T> boolean isSubset(FiniteSet<T> a, FiniteSet<T> b) {
+        final List<T> aList = Lists.newArrayList(a.elements());
+        final List<T> bList = Lists.newArrayList(b.elements());
+        return bList.containsAll(aList);
     }
 
-    default boolean is_strict_subset(FiniteSet<T> a, FiniteSet<T> b) {
-        return is_subset(a, b) && !is_subset(b, a);
+    public <T> boolean equal(FiniteSet<T> a, FiniteSet<T> b) {
+        return isSubset(a, b) && isSubset(b, a);
+    }
+
+    public <T> boolean isStrictSubset(FiniteSet<T> a, FiniteSet<T> b) {
+        return isSubset(a, b) && !isSubset(b, a);
     }
 }
