@@ -30,8 +30,18 @@ public class ArrayFiniteSet<T> implements FiniteSet<T> {
     }
 
     @Override
+    public int indexOf(T element) {
+        return elements.indexOf(element);
+    }
+
+    @Override
+    public T get(int i) {
+        return elements.get(i);
+    }
+
+    @Override
     public Map<String, T> save(T x) {
-        // todo: реазиловать
+        // todo: реализовать
         return null;
     }
 
