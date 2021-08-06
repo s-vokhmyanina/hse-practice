@@ -6,14 +6,15 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public interface FiniteMapRepresentation<T> {
-    FiniteMap<T> load(FiniteMapRepresentation.FiniteMapDto<T> data);
+public interface FiniteMapRepresentation<T, K> {
+    FiniteMap<T, K> load(FiniteMapDto<T, K> data);
 
-    FiniteMapRepresentation.FiniteMapDto<T> save(@NotNull FiniteMap<T> finiteMap);
+    FiniteMapDto<T, K> save(@NotNull FiniteMap<T, K> finiteMap);
 
     @Setter
     @Accessors(chain = true)
-    class FiniteMapDto<T> {
-        public List<T> elements;
+    class FiniteMapDto<T, K> {
+        public List<T> source;
+        public List<K> target;
     }
 }

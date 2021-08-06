@@ -7,4 +7,12 @@ public class FiniteCategoryOperations {
     FiniteCategory product(FiniteCategory c1, FiniteCategory c2) {
         return null;
     }
+
+    FiniteCategory twisted_arrow(FiniteCategory c1) {
+        return null;
+    }
+
+    FiniteCategory arrow(FiniteCategory c1) {
+        return null;
+    }
 }

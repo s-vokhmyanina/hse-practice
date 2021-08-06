@@ -7,9 +7,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public interface FiniteMonoidRepresentation<T> {
-    FiniteMonoid<T> load(FiniteMonoidRepresentation.FiniteMonoidDto<T> data);
+    FiniteMonoid<T> load(FiniteMonoidDto<T> data);
 
-    FiniteMonoidRepresentation.FiniteMonoidDto<T> save(@NotNull FiniteMonoid<T> finiteMonoid);
+    FiniteMonoidDto<T> save(@NotNull FiniteMonoid<T> finiteMonoid);
 
     @Setter
     @Accessors(chain = true)

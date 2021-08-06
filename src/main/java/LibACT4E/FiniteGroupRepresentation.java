@@ -7,9 +7,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public interface FiniteGroupRepresentation<T> {
-    FiniteGroup<T> load(FiniteGroupRepresentation.FiniteGroupDto<T> data);
+    FiniteGroup<T> load(FiniteGroupDto<T> data);
 
-    FiniteGroupRepresentation.FiniteGroupDto<T> save(@NotNull FiniteGroup<T> finiteGroup);
+    FiniteGroupDto<T> save(@NotNull FiniteGroup<T> finiteGroup);
 
     @Setter
     @Accessors(chain = true)

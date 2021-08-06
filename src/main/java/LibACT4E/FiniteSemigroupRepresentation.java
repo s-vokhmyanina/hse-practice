@@ -7,9 +7,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.List;
 
 public interface FiniteSemigroupRepresentation<T> {
-    FiniteSemigroup<T> load(FiniteSemigroupRepresentation.FiniteSemigroupDto<T> data);
+    FiniteSemigroup<T> load(FiniteSemigroupDto<T> data);
 
-    FiniteSemigroupRepresentation.FiniteSemigroupDto<T> save(@NotNull FiniteSemigroup<T> finiteSemigroup);
+    FiniteSemigroupDto<T> save(@NotNull FiniteSemigroup<T> finiteSemigroup);
 
     @Setter
     @Accessors(chain = true)
