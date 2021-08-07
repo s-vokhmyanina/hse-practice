@@ -8,5 +8,5 @@ public interface SetProduct<T> extends Setoid<T> {
 
     T pack(T... args);
 
-    List<Mapping<T, T>> projections();
+    List<Mapping<Setoid<T>, T>> projections();
 }

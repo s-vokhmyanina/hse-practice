@@ -39,7 +39,7 @@ public class SandboxTest {
 
     @Test
     public void testArrayMap_call() {
-        final ArrayMap<Integer, Integer> map = new ArrayMap<>(
+        final ArrayFiniteMap<Integer, Integer> map = new ArrayFiniteMap<>(
                 new ArrayFiniteSet<>(1, 2, 3),
                 new ArrayFiniteSet<>(1, 2)
         );

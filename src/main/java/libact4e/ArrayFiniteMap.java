@@ -1,11 +1,11 @@
 package libact4e;
 
-public class ArrayMap<K, T> implements FiniteMap<K, T> {
+public class ArrayFiniteMap<K, T> implements FiniteMap<K, T> {
     private final FiniteSet<K> source;
     private final FiniteSet<T> target;
     // or final private Map<String, T> dictionary = new HashMap<String, T>();
 
-    public ArrayMap(FiniteSet<K> source, FiniteSet<T> target) {
+    public ArrayFiniteMap(FiniteSet<K> source, FiniteSet<T> target) {
         this.source = source;
         this.target = target;
     }
