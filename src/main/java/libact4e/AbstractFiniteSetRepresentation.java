@@ -6,7 +6,6 @@ import java.util.ArrayList;
 
 public abstract class AbstractFiniteSetRepresentation<T> implements FiniteSetRepresentation<T> {
 
-    // todo: отрефакторить это пото
     @Override
     public FiniteSetDto<T> save(@NotNull FiniteSet<T> finiteSet) {
         final var set = new FiniteSetDto<T>();

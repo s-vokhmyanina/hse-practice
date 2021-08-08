@@ -1,9 +1,11 @@
 package libact4e;
 
+import com.google.common.collect.ImmutableList;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayFiniteSetProduct<Integer> implements FiniteSetProduct<Integer> {
+public class ArrayFiniteSetProduct implements FiniteSetProduct<Integer> {
 
     private final List<FiniteSet<Integer>> components;
 
@@ -18,11 +20,20 @@ public class ArrayFiniteSetProduct<Integer> implements FiniteSetProduct<Integer>
 
     @Override
     public Integer pack(Integer... args) {
-        return null;
+        Integer mul = 1;
+        for (var a : args) {
+            mul *= a;
+        }
+        return mul;
     }
 
     @Override
-    public List<FiniteMap<FiniteSet<Integer>, Integer>> projections() {
-        return null;
+    public List<FiniteMap<Integer, Integer>> projections() {
+        List<FiniteMap<Integer, Integer>> pr = new ArrayList<>();
+        for (var x : components) {
+            Integer mul = pack(ImmutableList.copyOf(x.elements()).toArray(new Integer[0]));
+            pr.add(new ArrayFiniteMap<>(x, new ArrayFiniteSet<>(mul)));
+        }
+        return pr;
     }
 }

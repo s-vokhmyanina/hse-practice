@@ -6,4 +6,8 @@ public interface FiniteSet<T> extends EnumerableSet<T> {
     int indexOf(T element);
 
     T get(int i);
+
+    static <T> ArrayFiniteSet<T> of(T... args) {
+        return new ArrayFiniteSet<T>(args);
+    }
 }

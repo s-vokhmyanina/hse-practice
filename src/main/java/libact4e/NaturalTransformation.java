@@ -1,7 +1,7 @@
 package libact4e;
 
-public interface NaturalTransformation {
-    Category cat1();
+public interface NaturalTransformation<K, T> {
+    Category<K> cat1();
 
-    Category cat2();
+    Category<T> cat2();
 }

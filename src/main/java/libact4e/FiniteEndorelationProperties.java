@@ -1,27 +1,27 @@
 package libact4e;
 
-public class FiniteEndorelationProperties<T, K> {
-    boolean isReflexive(FiniteRelation<T, K> fr) {
+public class FiniteEndorelationProperties {
+    public <K, T> boolean isReflexive(FiniteRelation<K, T> fr) {
         return true;
     }
 
-    boolean isIrreflexive(FiniteRelation<T, K> fr) {
+    public <K, T> boolean isIrreflexive(FiniteRelation<K, T> fr) {
         return true;
     }
 
-    boolean isTransitive(FiniteRelation<T, K> fr) {
+    public <K, T> boolean isTransitive(FiniteRelation<K, T> fr) {
         return true;
     }
 
-    boolean isSymmetric(FiniteRelation<T, K> fr) {
+    public <K, T> boolean isSymmetric(FiniteRelation<K, T> fr) {
         return true;
     }
 
-    boolean isAntisymmetric(FiniteRelation<T, K> fr) {
+    public <K, T> boolean isAntisymmetric(FiniteRelation<K, T> fr) {
         return true;
     }
 
-    boolean isAsymmetric(FiniteRelation<T, K> fr) {
+    public <K, T> boolean isAsymmetric(FiniteRelation<K, T> fr) {
         return true;
     }
 }

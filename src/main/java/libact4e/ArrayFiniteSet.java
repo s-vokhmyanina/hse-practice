@@ -40,14 +40,7 @@ public class ArrayFiniteSet<T> implements FiniteSet<T> {
     }
 
     @Override
-    public Map<String, T> save(T x) {
-        // todo: реализовать
-        return null;
-    }
-
-    @Override
-    public T load(Map<String, T> concreteRealization) {
-        // todo: реализовать
-        return null;
+    public String toString() {
+        return "elements: " + elements.toString();
     }
 }

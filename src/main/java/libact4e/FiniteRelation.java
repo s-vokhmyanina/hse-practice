@@ -1,7 +1,7 @@
 package libact4e;
 
-public interface FiniteRelation<T, K> extends Relation<T, K> {
-    FiniteSet<T> source();
-    FiniteSet<K> target();
+public interface FiniteRelation<K, T> extends Relation<K, T> {
+    FiniteSet<K> source();
 
+    FiniteSet<T> target();
 }

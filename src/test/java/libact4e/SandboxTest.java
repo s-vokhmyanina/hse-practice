@@ -9,7 +9,7 @@ import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class SandboxTest {
 
@@ -45,5 +45,40 @@ public class SandboxTest {
         );
         final int target = map.call(3);
         assertEquals(1, target);
+    }
+
+    @Test
+    public void testFiniteSetToString() {
+        final ArrayFiniteSet<Integer> integers = new ArrayFiniteSet<>(1, 2, 3);
+        assertEquals("elements: [1, 2, 3]", integers.toString());
+    }
+
+    @Test
+    public void testFiniteMapToString() {
+        final var map = new ArrayFiniteMap<>(FiniteSet.of("a", "b", "c"), FiniteSet.of(1, 2));
+        assertEquals(
+                """
+                        source:
+                          elements: [a, b, c]
+                        target:
+                          elements: [1, 2]
+                        values:
+                          - [a, 1]
+                          - [b, 2]
+                          - [c, 1]""",
+                map.toString()
+        );
+    }
+
+    @Test
+    public void testArraySetUnion() {
+        final var union = new ArraySetUnion(FiniteSet.of(1, 2, 3), FiniteSet.of("a", "b", "c"));
+        assertEquals(
+                """
+                        union:
+                        - elements: [1, 2, 3]
+                        - elements: [a, b, c]""",
+                union.toString()
+        );
     }
 }

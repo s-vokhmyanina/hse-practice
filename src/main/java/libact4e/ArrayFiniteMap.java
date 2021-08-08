@@ -29,23 +29,16 @@ public class ArrayFiniteMap<K, T> implements FiniteMap<K, T> {
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
-        builder.append("source:\n\t")
-                .append("elements: ").append(source.toString()).append("\n")
-                .append("target:\n\t")
-                .append("elements: ").append(target.toString()).append("\n")
+        builder.append("source:\n  ")
+                .append(source.toString()).append("\n")
+                .append("target:\n  ")
+                .append(target.toString()).append("\n")
                 .append("values:");
         for (int i = 0; i < source.size(); i++) {
             final K current = source.get(i);
             final T element = target.get(i % target.size());
-            builder.append("\n\t- [").append(current).append(", ").append(element).append("]");
+            builder.append("\n  - [").append(current).append(", ").append(element).append("]");
         }
         return builder.toString();
     }
-
-//    public static class Serializer extends JsonSerializer<ArrayMap<?>> {
-//        @Override
-//        public void serialize(ArrayMap<?> value, JsonGenerator gen, SerializerProvider serializers) throws IOException {
-//            gen.writeStartObject("");
-//        }
-//    }
 }

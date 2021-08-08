@@ -9,5 +9,5 @@ public interface FiniteSetProduct<T> {
 
     T pack(T... args);
 
-    List<FiniteMap<FiniteSet<T>, T>> projections();
+    List<FiniteMap<T, T>> projections();
 }

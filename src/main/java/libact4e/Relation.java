@@ -1,7 +1,8 @@
 package libact4e;
 
 // todo: Возможно это можно удалить
-public interface Relation<T, K> {
-    Setoid<T> source();
-    Setoid<K> target();
+public interface Relation<K, T> {
+    Setoid<K> source();
+
+    Setoid<T> target();
 }

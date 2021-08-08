@@ -1,18 +1,20 @@
 package libact4e;
 
 public class FiniteCategoryOperations {
-    FiniteCategory disjoint_union(FiniteCategory c1, FiniteCategory c2) {
-        return null;
-    };
-    FiniteCategory product(FiniteCategory c1, FiniteCategory c2) {
+
+    public <T> FiniteCategory<T> disjointUnion(FiniteCategory<T> c1, FiniteCategory<T> c2) {
         return null;
     }
 
-    FiniteCategory twisted_arrow(FiniteCategory c1) {
+    public <T> FiniteCategory<T> product(FiniteCategory<T> c1, FiniteCategory<T> c2) {
         return null;
     }
 
-    FiniteCategory arrow(FiniteCategory c1) {
+    public <T> FiniteCategory<T> twistedArrow(FiniteCategory<T> c1) {
+        return null;
+    }
+
+    public <T> FiniteCategory<T> arrow(FiniteCategory<T> c1) {
         return null;
     }
 }

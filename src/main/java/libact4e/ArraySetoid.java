@@ -21,18 +21,6 @@ public class ArraySetoid<T> implements Setoid<T> {
         return elements.contains(x);
     }
 
-    @Override
-    public Map save(Object x) {
-        // todo: реализовать
-        return null;
-    }
-
-    @Override
-    public Object load(Map concreteRealization) {
-        // todo: реализовать
-        return null;
-    }
-
     @NotNull
     @Override
     public Iterator<T> iterator() {

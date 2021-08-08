@@ -1,7 +1,8 @@
 package libact4e;
+
 // todo: Возможно это можно удалить
 public interface SemiCategory<T> {
-    Setoid objects();
+    Setoid<T> objects();
 
-    Setoid hom( T ob1, T ob2);
+    Setoid<T> hom(T ob1, T ob2);
 }

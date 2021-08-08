@@ -1,8 +1,8 @@
 package libact4e;
 
-public interface MonotoneMap<T, K> extends Mapping<T, K> {
-    Poset<T> sourcePoset();
+public interface MonotoneMap<K, T> extends Mapping<K, T> {
+    Poset<K> sourcePoset();
 
-    Poset<K> targetPoset();
+    Poset<T> targetPoset();
 }
 

@@ -1,19 +1,19 @@
 package libact4e;
 
-public class FiniteRelationProperties<T, K> {
-    boolean isSurjective(FiniteRelation<T, K> fr) {
+public class FiniteRelationProperties<K, T> {
+    public boolean isSurjective(FiniteRelation<K, T> fr) {
         return true;
     }
 
-    boolean isInjective(FiniteRelation<T, K> fr) {
+    public boolean isInjective(FiniteRelation<K, T> fr) {
         return true;
     }
 
-    boolean isDefinedEverywhere(FiniteRelation<T, K> fr) {
+    public boolean isDefinedEverywhere(FiniteRelation<K, T> fr) {
         return true;
     }
 
-    boolean isSingleValued(FiniteRelation<T, K> fr) {
+    public boolean isSingleValued(FiniteRelation<K, T> fr) {
         return true;
     }
-    }
+}

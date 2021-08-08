@@ -4,15 +4,15 @@ import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.jetbrains.annotations.NotNull;
 
-public interface FiniteRelationRepresentation<T, K> {
-    FiniteRelation<T, K> load(FiniteRelationDto<T, K> data);
+public interface FiniteRelationRepresentation<K, T> {
+    FiniteRelation<K, T> load(FiniteRelationDto<K, T> data);
 
-    FiniteRelationDto<T, K> save(@NotNull FiniteRelation<T, K> finiteRelation);
+    FiniteRelationDto<K, T> save(@NotNull FiniteRelation<K, T> finiteRelation);
 
     @Setter
     @Accessors(chain = true)
-    class FiniteRelationDto<T, K> {
-        public FiniteSet<T> source;
-        public FiniteSet<K> target;
+    class FiniteRelationDto<K, T> {
+        public FiniteSet<K> source;
+        public FiniteSet<T> target;
     }
 }

@@ -2,11 +2,12 @@ package libact4e;
 
 import org.jetbrains.annotations.NotNull;
 
-public abstract class AbstractFiniteRelationRepresentation<T, K> implements FiniteRelationRepresentation<T, K> {
-    // todo: отрефакторить это пото
+public abstract class AbstractFiniteRelationRepresentation<K, T> implements FiniteRelationRepresentation<K, T> {
+
     @Override
-    public FiniteRelationDto<T, K> save(@NotNull FiniteRelation<T, K> finiteRelation) {
-        final var set = new FiniteRelationDto<T, K>();
+    public FiniteRelationDto<K, T> save(@NotNull FiniteRelation<K, T> finiteRelation) {
+        final var set = new FiniteRelationDto<K, T>();
+
         set.source = finiteRelation.source();
         set.target = finiteRelation.target();
 
