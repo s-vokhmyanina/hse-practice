@@ -2,12 +2,11 @@ package libact4e;
 
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import org.jetbrains.annotations.NotNull;
 
-public interface FiniteRelationRepresentation<K, T> {
-    FiniteRelation<K, T> load(FiniteRelationDto<K, T> data);
+public interface FiniteRelationRepresentation {
+    <K, T> FiniteRelation<K, T> load(FiniteRelationDto<K, T> data);
 
-    FiniteRelationDto<K, T> save(@NotNull FiniteRelation<K, T> finiteRelation);
+    <K, T> FiniteRelationDto<K, T> save(FiniteRelation<K, T> finiteRelation);
 
     @Setter
     @Accessors(chain = true)

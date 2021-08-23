@@ -1,6 +1,8 @@
 package libact4e;
 
-public interface Mapping<K, T> {
+import java.util.function.Function;
+
+public interface Mapping<K, T> extends Function<K, T> {
     Setoid<K> source();
 
     Setoid<T> target();

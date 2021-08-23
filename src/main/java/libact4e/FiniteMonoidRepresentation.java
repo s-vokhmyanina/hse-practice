@@ -2,14 +2,13 @@ package libact4e;
 
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
-public interface FiniteMonoidRepresentation<T> {
-    FiniteMonoid<T> load(FiniteMonoidDto<T> data);
+public interface FiniteMonoidRepresentation {
+    <T> FiniteMonoid<T> load(FiniteMonoidDto<T> data);
 
-    FiniteMonoidDto<T> save(@NotNull FiniteMonoid<T> finiteMonoid);
+    <T> FiniteMonoidDto<T> save(FiniteMonoid<T> finiteMonoid);
 
     @Setter
     @Accessors(chain = true)

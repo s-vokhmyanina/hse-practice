@@ -1,5 +1,11 @@
 package libact4e;
 
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Lists;
+import libact4e.impl.ArrayFiniteSet;
+
+import java.util.List;
+
 public interface FiniteSet<T> extends EnumerableSet<T> {
     int size();
 
@@ -7,7 +13,15 @@ public interface FiniteSet<T> extends EnumerableSet<T> {
 
     T get(int i);
 
+    default List<T> toList() {
+        return Lists.newArrayList(elements());
+    }
+
     static <T> ArrayFiniteSet<T> of(T... args) {
-        return new ArrayFiniteSet<T>(args);
+        return new ArrayFiniteSet<>(args);
+    }
+
+    static <T> ArrayFiniteSet<T> of(List<T> list, Class<T> clazz) {
+        return new ArrayFiniteSet<T>(Iterables.toArray(list, clazz));
     }
 }

@@ -15,8 +15,10 @@ dependencies {
     implementation "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson"
 
     implementation 'com.google.guava:guava:30.1.1-jre'
-    implementation 'org.jetbrains:annotations:19.0.0'
-    compileOnly 'org.projectlombok:lombok:1.18.20'
+
+    def lombok = 'org.projectlombok:lombok:1.18.20'
+    compileOnly lombok
+    annotationProcessor lombok
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'

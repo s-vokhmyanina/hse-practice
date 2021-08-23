@@ -1,15 +1,10 @@
 package libact4e;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.util.ArrayList;
-
-public abstract class AbstractFiniteSetRepresentation<T> implements FiniteSetRepresentation<T> {
+public abstract class AbstractFiniteSetRepresentation implements FiniteSetRepresentation {
 
     @Override
-    public FiniteSetDto<T> save(@NotNull FiniteSet<T> finiteSet) {
+    public <T> FiniteSetDto<T> save(FiniteSet<T> finiteSet) {
         final var set = new FiniteSetDto<T>();
-        set.elements = new ArrayList<>();
 
         for (T t : finiteSet) {
             set.elements.add(t);

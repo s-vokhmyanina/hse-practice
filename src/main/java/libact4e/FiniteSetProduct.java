@@ -4,10 +4,11 @@ import java.util.List;
 
 // todo: Подумать
 
-public interface FiniteSetProduct<T> {
-    List<FiniteSet<T>> components();
+//  здесь должно быть наследование от FiniteSet, но похоже, что это невозможно сделать
+public interface FiniteSetProduct<T> extends SetProduct<T> {
+    List<? extends FiniteSet<T>> components();
 
     T pack(T... args);
 
-    List<FiniteMap<T, T>> projections();
+    List<? extends FiniteMap<? extends FiniteSet<T>, T>> projections();
 }

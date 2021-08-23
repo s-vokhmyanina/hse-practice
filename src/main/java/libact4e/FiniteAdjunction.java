@@ -7,6 +7,6 @@ public interface FiniteAdjunction<K, T> {
 
     FiniteFunctor<K, T> left(); // source -> target
 
-    FiniteFunctor<K, T> right(); // target -> source
-
+    FiniteFunctor<T, K> right(); // target -> source
 }
+

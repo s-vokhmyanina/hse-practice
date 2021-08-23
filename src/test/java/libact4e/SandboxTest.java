@@ -1,5 +1,6 @@
 package libact4e;
 
+import libact4e.impl.*;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -8,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -28,7 +30,7 @@ public class SandboxTest {
 
     @Test
     public void testArrayFiniteSetRepresentation_yaml() throws Exception {
-        final FiniteSetRepresentation<Integer> representation = new ArrayFiniteSetRepresentation<>();
+        final FiniteSetRepresentation representation = new ArrayFiniteSetRepresentation();
         final FiniteSet<Integer> integers = new ArrayFiniteSet<>(1, 2, 3);
         final FiniteSetRepresentation.FiniteSetDto<Integer> finiteSetDto = representation.save(integers);
 
@@ -43,19 +45,22 @@ public class SandboxTest {
                 new ArrayFiniteSet<>(1, 2, 3),
                 new ArrayFiniteSet<>(1, 2)
         );
-        final int target = map.call(3);
+        final int target = map.apply(3);
         assertEquals(1, target);
     }
 
     @Test
-    public void testFiniteSetToString() {
+    public void testFiniteSet_toString() {
         final ArrayFiniteSet<Integer> integers = new ArrayFiniteSet<>(1, 2, 3);
         assertEquals("elements: [1, 2, 3]", integers.toString());
     }
 
     @Test
-    public void testFiniteMapToString() {
-        final var map = new ArrayFiniteMap<>(FiniteSet.of("a", "b", "c"), FiniteSet.of(1, 2));
+    public void testFiniteMap_toString() {
+        final var map = new ArrayFiniteMap<>(
+                FiniteSet.of("a", "b", "c"),
+                FiniteSet.of(1, 2)
+        );
         assertEquals(
                 """
                         source:
@@ -71,14 +76,32 @@ public class SandboxTest {
     }
 
     @Test
-    public void testArraySetUnion() {
-        final var union = new ArraySetUnion(FiniteSet.of(1, 2, 3), FiniteSet.of("a", "b", "c"));
+    public void testArraySetUnion_toString() {
+        final var union = new ArraySetUnion(
+                FiniteSet.of(1, 2, 3),
+                FiniteSet.of("a", "b", "c")
+        );
         assertEquals(
                 """
                         union:
                         - elements: [1, 2, 3]
                         - elements: [a, b, c]""",
                 union.toString()
+        );
+    }
+
+    @Test
+    public void testArrayFiniteSetProduct_toString() {
+        final var product = new ArrayFiniteSetProduct(List.of(
+                FiniteSet.of(1, 2),
+                FiniteSet.of(3, 4)
+        ));
+        assertEquals(
+                """
+                        product:
+                        - elements: [1, 2]
+                        - elements: [3, 4]""",
+                product.toString()
         );
     }
 }

@@ -2,12 +2,13 @@ package libact4e;
 
 import lombok.Setter;
 import lombok.experimental.Accessors;
-import org.jetbrains.annotations.NotNull;
 
-public interface FiniteNaturalTransformationRepresentation<K, T> {
-    FiniteNaturalTransformation<K, T> load(FiniteNaturalTransformationDto<K, T> data);
+public interface FiniteNaturalTransformationRepresentation {
+    <K, T> FiniteNaturalTransformation<K, T> load(FiniteNaturalTransformationDto<K, T> data);
 
-    FiniteNaturalTransformationDto<K, T> save(@NotNull FiniteNaturalTransformation<K, T> finiteNaturalTransformation);
+    <K, T> FiniteNaturalTransformationDto<K, T> save(
+            FiniteNaturalTransformation<K, T> finiteNaturalTransformation
+    );
 
     @Setter
     @Accessors(chain = true)

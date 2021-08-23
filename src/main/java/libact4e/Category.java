@@ -1,7 +1,6 @@
 package libact4e;
 
-public interface Category<T> {
-    Setoid<T> objects();
+public interface Category<T> extends SemiCategory<T> {
 
-    Setoid<T> hom(T ob1, T ob2);
+//    Morphism<T> identity(Object ob);
 }

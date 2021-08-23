@@ -2,11 +2,11 @@ package libact4e;
 
 import java.util.List;
 
-public interface SetProduct<T> extends Setoid<T> {
+public interface SetProduct<T> extends Setoid<Setoid<T>> {
 
-    List<Setoid<T>> components();
+    List<? extends Setoid<T>> components();
 
     T pack(T... args);
 
-    List<Mapping<Setoid<T>, T>> projections();
+    List<? extends Mapping<? extends Setoid<T>, T>> projections();
 }

@@ -1,7 +1,5 @@
 package libact4e;
 
-import java.util.Map;
-
 public interface Setoid<T> extends Iterable<T> {
     boolean contains(T x);
 
