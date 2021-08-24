@@ -1,7 +1,9 @@
 package libact4e.impl;
 
 import libact4e.FiniteCategory;
+import libact4e.utils.UnderDevelopment;
 
+@UnderDevelopment
 public class FiniteCategoryOperations {
 
     public <T> FiniteCategory<T> disjointUnion(FiniteCategory<T> c1, FiniteCategory<T> c2) {

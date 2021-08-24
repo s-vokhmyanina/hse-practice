@@ -1,5 +1,8 @@
 package libact4e;
 
+import libact4e.utils.UnderDevelopment;
+
+@UnderDevelopment
 public abstract class AbstractFiniteRelationRepresentation implements FiniteRelationRepresentation {
 
     @Override

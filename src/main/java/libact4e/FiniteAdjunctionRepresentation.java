@@ -1,9 +1,10 @@
 package libact4e;
 
-import libact4e.impl.ArrayFiniteAdjunctionRepresentation;
+import libact4e.utils.UnderDevelopment;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
+@UnderDevelopment
 public interface FiniteAdjunctionRepresentation {
 
     <K, T> FiniteAdjunction<K, T> load(FiniteAdjunctionDTO<K, T> dto);

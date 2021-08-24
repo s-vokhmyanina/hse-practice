@@ -1,7 +1,9 @@
 package libact4e.impl;
 
 import libact4e.FiniteRelation;
+import libact4e.utils.UnderDevelopment;
 
+@UnderDevelopment
 public class FiniteEndorelationProperties {
     public <K, T> boolean isReflexive(FiniteRelation<K, T> fr) {
         return true;

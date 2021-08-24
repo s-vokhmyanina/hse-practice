@@ -2,7 +2,9 @@ package libact4e.impl;
 
 import libact4e.AbstractFiniteAdjunctionRepresentation;
 import libact4e.FiniteAdjunction;
+import libact4e.utils.UnderDevelopment;
 
+@UnderDevelopment
 public class ArrayFiniteAdjunctionRepresentation extends AbstractFiniteAdjunctionRepresentation {
 
     @Override

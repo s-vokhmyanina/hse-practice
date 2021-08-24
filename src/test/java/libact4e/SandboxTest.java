@@ -1,6 +1,7 @@
 package libact4e;
 
 import libact4e.impl.*;
+import libact4e.utils.ObjectMapperWrapper;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

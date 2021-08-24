@@ -2,7 +2,9 @@ package libact4e.impl;
 
 import libact4e.FinitePoset;
 import libact4e.FiniteSet;
+import libact4e.utils.UnderDevelopment;
 
+@UnderDevelopment
 public class FinitePosetProperties<T> {
     public int width(FinitePoset<T> fp) {
         return 0;

@@ -1,12 +1,13 @@
 package libact4e.impl;
 
 import libact4e.FinitePoset;
-import libact4e.FiniteSet;
+import libact4e.utils.UnderDevelopment;
 
 import java.util.Optional;
 import java.util.Set;
 
 // Нужны ли операции для Lower/upper sets
+@UnderDevelopment
 public class FinitePosetOperations {
 
     public <T> Set<T> upperClosure(FinitePoset<T> fp, Set<T> s) {

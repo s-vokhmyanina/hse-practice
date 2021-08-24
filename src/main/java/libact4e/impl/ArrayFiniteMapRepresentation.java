@@ -8,8 +8,8 @@ public class ArrayFiniteMapRepresentation implements FiniteMapRepresentation {
     @Override
     public <K, T> FiniteMap<K, T> load(FiniteMapDto<K, T> data) {
         return new ArrayFiniteMap<>(
-                FiniteSet.of(data.source, (Class<K>) data.source.getClass()),
-                FiniteSet.of(data.target, (Class<T>) data.target.getClass())
+                FiniteSet.of(data.source),
+                FiniteSet.of(data.target)
         );
     }
 

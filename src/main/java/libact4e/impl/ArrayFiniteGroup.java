@@ -3,7 +3,9 @@ package libact4e.impl;
 import libact4e.FiniteGroup;
 import libact4e.FiniteMap;
 import libact4e.FiniteSet;
+import libact4e.utils.UnderDevelopment;
 
+@UnderDevelopment
 public class ArrayFiniteGroup<T> implements FiniteGroup<T> {
     @Override
     public FiniteMap<T, T> inverse() {

@@ -2,7 +2,6 @@ package libact4e.impl;
 
 import libact4e.FiniteCategory;
 import libact4e.FiniteSet;
-import libact4e.Morphism;
 
 // todo:проверить категории
 public class ArrayFiniteCategory<T> implements FiniteCategory<T> {

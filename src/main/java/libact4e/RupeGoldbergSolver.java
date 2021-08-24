@@ -1,10 +1,12 @@
 package libact4e;
 
-import libact4e.impl.Component;
-import libact4e.impl.Solution;
+import libact4e.pojo.Component;
+import libact4e.pojo.Solution;
+import libact4e.utils.UnderDevelopment;
 
 import java.util.List;
 
+@UnderDevelopment
 public interface RupeGoldbergSolver {
 
     Solution hangthem(List<Component> components);

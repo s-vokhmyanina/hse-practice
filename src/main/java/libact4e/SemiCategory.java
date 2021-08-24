@@ -1,6 +1,8 @@
 package libact4e;
-import libact4e.impl.Pair;
 
+import libact4e.utils.UnderDevelopment;
+
+@UnderDevelopment
 public interface SemiCategory<T> {
     Setoid<T> objects();
 

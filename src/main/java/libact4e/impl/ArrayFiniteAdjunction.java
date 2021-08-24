@@ -3,7 +3,9 @@ package libact4e.impl;
 import libact4e.FiniteAdjunction;
 import libact4e.FiniteCategory;
 import libact4e.FiniteFunctor;
+import libact4e.utils.UnderDevelopment;
 
+@UnderDevelopment
 public class ArrayFiniteAdjunction<K, T> implements FiniteAdjunction<K, T> {
 
     private final FiniteCategory<K> source;

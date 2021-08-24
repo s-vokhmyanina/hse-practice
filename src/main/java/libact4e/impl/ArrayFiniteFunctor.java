@@ -2,7 +2,6 @@ package libact4e.impl;
 
 import libact4e.FiniteCategory;
 import libact4e.FiniteFunctor;
-import libact4e.Morphism;
 
 public class ArrayFiniteFunctor<K, T> implements FiniteFunctor<K, T> {
 

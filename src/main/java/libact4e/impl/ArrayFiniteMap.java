@@ -4,9 +4,9 @@ import libact4e.FiniteMap;
 import libact4e.FiniteSet;
 
 public class ArrayFiniteMap<K, T> implements FiniteMap<K, T> {
+
     private final FiniteSet<K> source;
     private final FiniteSet<T> target;
-    // or final private Map<String, T> dictionary = new HashMap<String, T>();
 
     public ArrayFiniteMap(FiniteSet<K> source, FiniteSet<T> target) {
         this.source = source;

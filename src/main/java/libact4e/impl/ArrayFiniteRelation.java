@@ -2,9 +2,11 @@ package libact4e.impl;
 
 import libact4e.FiniteRelation;
 import libact4e.FiniteSet;
+import libact4e.utils.UnderDevelopment;
 
 import java.util.List;
 
+@UnderDevelopment
 public class ArrayFiniteRelation<K, T> implements FiniteRelation<K, T> {
     private final FiniteSet<K> source;
     private final FiniteSet<T> target;
