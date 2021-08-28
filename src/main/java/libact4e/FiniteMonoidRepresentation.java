@@ -13,6 +13,6 @@ public interface FiniteMonoidRepresentation {
     class FiniteMonoidDto<T> {
         public T neutral;
         public FiniteSet<T> elements;
-        public FiniteMap<T, T> values;
+        public FiniteMap<? extends FiniteSet<T>, T> values;
     }
 }

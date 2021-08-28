@@ -14,7 +14,7 @@ public class ArrayFiniteMonoid<T> implements FiniteMonoid<T> {
 
     private final T neutral;
     private final FiniteSet<T> elements;
-    private final FiniteMap<T, T> values;
+    private final FiniteMap<? extends FiniteSet<T>, T> values;
 
     public ArrayFiniteMonoid(
             T neutral,
@@ -24,23 +24,18 @@ public class ArrayFiniteMonoid<T> implements FiniteMonoid<T> {
         this.neutral = neutral;
         this.elements = elements;
         // мне не нравится, что там в yml product :с
-        // без product (это лучше не смотреть и удалить)
-//        List<List<T>> s = new ArrayList<>();
-        List<T> s = new ArrayList<>();
+        // без product (это лучше удалить)
+        List<FiniteSet<T>> s = new ArrayList<>();
         List<T> t = new ArrayList<>();
 
         for (var a : elements) {
             for (var b : elements) {
-                List<T> e = new ArrayList<>();
-//                e.add(a);
-//                e.add(b);
-//                s.add(e);
-                s.add(a);
-                s.add(b);
+                final FiniteSet<T> e = new ArrayFiniteSet<>(a, b);
+                s.add(e);
                 t.add(function.apply(a,b));
             }
         }
-        final FiniteSet<T> source = new ArrayFiniteSet<>(s);
+        final FiniteSet<FiniteSet<T>> source = new ArrayFiniteSet<>(s);
         final FiniteSet<T> target = new ArrayFiniteSet<>(t);
         values = new ArrayFiniteMap<>(source, target);
     }
@@ -51,7 +46,7 @@ public class ArrayFiniteMonoid<T> implements FiniteMonoid<T> {
     public ArrayFiniteMonoid(
             T neutral,
             FiniteSet<T> elements,
-            FiniteMap<T, T> values
+            FiniteMap<? extends FiniteSet<T>, T> values
     ) {
         this.neutral = neutral;
         this.elements = elements;
@@ -64,7 +59,7 @@ public class ArrayFiniteMonoid<T> implements FiniteMonoid<T> {
     }
 
     @Override
-    public FiniteMap<T, T> composition() {
+    public FiniteMap<? extends FiniteSet<T>, T> composition() {
         return values;
     }
 

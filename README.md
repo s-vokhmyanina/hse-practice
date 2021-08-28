@@ -6,9 +6,9 @@
 - [x] FiniteMapRepresentation
 - [x] FiniteSetRepresentation
 - [x] FiniteMap
-- [] FiniteMonoid
-- [] MakeSetProduct
-- [] FiniteSemigroup
-- [] FiniteSetProduct - проблема с дженериком
+- [x] FiniteMonoid
+- [x] FiniteSemigroup
 - [x] FiniteMonoidRepresentation
 - [x] FiniteSemigroupRepresentation
+- [ ] MakeSetProduct
+- [ ] FiniteSetProduct - проблема с дженериком

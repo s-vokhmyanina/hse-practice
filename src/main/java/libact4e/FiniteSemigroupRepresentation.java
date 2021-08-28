@@ -14,6 +14,6 @@ public interface FiniteSemigroupRepresentation {
     @Accessors(chain = true)
     class FiniteSemigroupDto<T> {
         public FiniteSet<T> carrier;
-        public FiniteMap<T, T> composition;
+        public FiniteMap<? extends FiniteSet<T>, T> composition;
     }
 }
