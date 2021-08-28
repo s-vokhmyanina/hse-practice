@@ -10,12 +10,13 @@ import libact4e.utils.UnderDevelopment;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.BiFunction;
 
 public class IntegerFiniteSetProduct implements FiniteSetProduct<Integer, FiniteSet<Integer>> {
 
-    private final List<FiniteSet<Integer>> components;
+    private final List<? extends FiniteSet<Integer>> components;
 
-    public IntegerFiniteSetProduct(List<FiniteSet<Integer>> components) {
+    public IntegerFiniteSetProduct(List<? extends FiniteSet<Integer>> components) {
         this.components = components;
     }
 
@@ -25,10 +26,10 @@ public class IntegerFiniteSetProduct implements FiniteSetProduct<Integer, Finite
     }
 
     @Override
-    public Integer pack(Integer... args) {
-        Integer mul = 1;
-        for (var a : args) {
-            mul *= a;
+    public Integer pack(BiFunction<Integer, Integer, Integer> function, Integer... args) {
+        Integer mul = function.apply(args[0], args[1]);
+        for (int i = 2; i < args.length; i++) {
+            mul = function.apply(mul, args[i]);
         }
         return mul;
     }
@@ -37,7 +38,7 @@ public class IntegerFiniteSetProduct implements FiniteSetProduct<Integer, Finite
     public List<FiniteMap<FiniteSet<Integer>, Integer>> projections() {
         List<FiniteMap<FiniteSet<Integer>, Integer>> pr = new ArrayList<>();
         for (var x : components) {
-            Integer mul = pack(ImmutableList.copyOf(x.elements()).toArray(new Integer[0]));
+            Integer mul = pack((i1, i2) -> i1 * i2, ImmutableList.copyOf(x.elements()).toArray(new Integer[0]));
             pr.add(new ArrayFiniteMap<>(FiniteSet.of(x), new ArrayFiniteSet<>(mul)));
         }
         return pr;
@@ -56,7 +57,7 @@ public class IntegerFiniteSetProduct implements FiniteSetProduct<Integer, Finite
     @Override
     @UnderDevelopment
     public Iterator<FiniteSet<Integer>> iterator() {
-        return components.iterator();
+        return (Iterator<FiniteSet<Integer>>) components.iterator();
     }
 
     @Override

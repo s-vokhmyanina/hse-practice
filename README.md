@@ -11,4 +11,4 @@
 - [x] FiniteMonoidRepresentation
 - [x] FiniteSemigroupRepresentation
 - [ ] MakeSetProduct
-- [ ] FiniteSetProduct - проблема с дженериком
+- [ ] FiniteSetProduct
