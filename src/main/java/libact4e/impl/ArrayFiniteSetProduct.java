@@ -5,6 +5,7 @@ import libact4e.FiniteMap;
 import libact4e.FiniteSet;
 import libact4e.FiniteSetProduct;
 import libact4e.Setoid;
+import libact4e.utils.UnderDevelopment;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -53,12 +54,15 @@ public class ArrayFiniteSetProduct implements FiniteSetProduct<Integer> {
     }
 
     @Override
+    @UnderDevelopment
     public Iterator<Setoid<Integer>> iterator() {
         return null;
     }
 
     @Override
+    @UnderDevelopment
     public boolean contains(Setoid<Integer> x) {
         return false;
     }
+
 }

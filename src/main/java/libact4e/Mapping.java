@@ -6,6 +6,4 @@ public interface Mapping<K, T> extends Function<K, T> {
     Setoid<K> source();
 
     Setoid<T> target();
-
-    T call(K a);
 }

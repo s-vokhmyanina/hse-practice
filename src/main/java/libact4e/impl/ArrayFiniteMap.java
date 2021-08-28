@@ -44,10 +44,4 @@ public class ArrayFiniteMap<K, T> implements FiniteMap<K, T> {
         }
         return builder.toString();
     }
-
-    @Override
-    public T call(K a) {
-        return null;
-    }
-
 }

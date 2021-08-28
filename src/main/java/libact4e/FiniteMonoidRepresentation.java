@@ -3,8 +3,6 @@ package libact4e;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 
-import java.util.List;
-
 public interface FiniteMonoidRepresentation {
     <T> FiniteMonoid<T> load(FiniteMonoidDto<T> data);
 
@@ -13,6 +11,8 @@ public interface FiniteMonoidRepresentation {
     @Setter
     @Accessors(chain = true)
     class FiniteMonoidDto<T> {
-        public List<T> elements;
+        public T neutral;
+        public FiniteSet<T> elements;
+        public FiniteMap<T, T> values;
     }
 }

@@ -5,10 +5,10 @@
 - [x] FiniteSetProperties
 - [x] FiniteMapRepresentation
 - [x] FiniteSetRepresentation
-- [] FiniteMap
+- [x] FiniteMap
 - [] FiniteMonoid
 - [] MakeSetProduct
 - [] FiniteSemigroup
 - [] FiniteSetProduct - проблема с дженериком
-- [] FiniteMonoidRepresentation
-- [] FiniteSemigroupRepresentation
+- [x] FiniteMonoidRepresentation
+- [x] FiniteSemigroupRepresentation

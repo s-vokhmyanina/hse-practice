@@ -13,6 +13,7 @@ public interface FiniteSemigroupRepresentation {
     @Setter
     @Accessors(chain = true)
     class FiniteSemigroupDto<T> {
-        public List<T> elements;
+        public FiniteSet<T> carrier;
+        public FiniteMap<T, T> composition;
     }
 }
