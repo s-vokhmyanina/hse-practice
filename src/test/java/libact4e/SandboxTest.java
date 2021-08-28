@@ -93,7 +93,7 @@ public class SandboxTest {
 
     @Test
     public void testArrayFiniteSetProduct_toString() {
-        final var product = new ArrayFiniteSetProduct(List.of(
+        final var product = new IntegerFiniteSetProduct(List.of(
                 FiniteSet.of(1, 2),
                 FiniteSet.of(3, 4)
         ));

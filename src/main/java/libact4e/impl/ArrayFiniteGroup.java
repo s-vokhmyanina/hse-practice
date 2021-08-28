@@ -18,7 +18,7 @@ public class ArrayFiniteGroup<T> implements FiniteGroup<T> {
     }
 
     @Override
-    public FiniteMap<T, T> composition() {
+    public FiniteMap<? extends FiniteSet<T>, T> composition() {
         return null;
     }
 

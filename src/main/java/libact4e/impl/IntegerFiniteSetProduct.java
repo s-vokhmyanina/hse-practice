@@ -11,11 +11,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ArrayFiniteSetProduct implements FiniteSetProduct<Integer> {
+public class IntegerFiniteSetProduct implements FiniteSetProduct<Integer, FiniteSet<Integer>> {
 
     private final List<FiniteSet<Integer>> components;
 
-    public ArrayFiniteSetProduct(List<FiniteSet<Integer>> components) {
+    public IntegerFiniteSetProduct(List<FiniteSet<Integer>> components) {
         this.components = components;
     }
 
@@ -55,14 +55,12 @@ public class ArrayFiniteSetProduct implements FiniteSetProduct<Integer> {
 
     @Override
     @UnderDevelopment
-    public Iterator<Setoid<Integer>> iterator() {
-        return null;
+    public Iterator<FiniteSet<Integer>> iterator() {
+        return components.iterator();
     }
 
     @Override
-    @UnderDevelopment
-    public boolean contains(Setoid<Integer> x) {
-        return false;
+    public boolean contains(FiniteSet<Integer> x) {
+        return components.contains(x);
     }
-
 }
