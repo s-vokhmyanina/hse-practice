@@ -1,4 +1,4 @@
-package libact4e;
+package sandbox;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -6,6 +6,8 @@ import com.fasterxml.jackson.dataformat.yaml.YAMLFactory;
 import com.google.common.collect.ImmutableSet;
 import com.google.common.reflect.ClassPath;
 import com.google.common.reflect.ClassPath.ClassInfo;
+import libact4e.FiniteSet;
+import libact4e.FiniteSetRepresentation;
 import libact4e.impl.ArrayFiniteSet;
 import libact4e.impl.ArrayFiniteSetRepresentation;
 import libact4e.utils.UnderDevelopment;

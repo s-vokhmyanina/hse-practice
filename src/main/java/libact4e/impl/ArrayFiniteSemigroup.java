@@ -3,10 +3,12 @@ package libact4e.impl;
 import libact4e.FiniteMap;
 import libact4e.FiniteSemigroup;
 import libact4e.FiniteSet;
+import libact4e.FiniteSetProduct;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
+import java.util.stream.Collectors;
 
 public class ArrayFiniteSemigroup<T> implements FiniteSemigroup<T> {
 
@@ -26,19 +28,18 @@ public class ArrayFiniteSemigroup<T> implements FiniteSemigroup<T> {
             BiFunction<T, T, T> function
     ) {
         this.carrier = carrier;
-        // то же, что и в моноиде ... используется продукт :с
-        // без product (это лучше удалить)
-     List<FiniteSet<T>> s = new ArrayList<>();
-        List<T> t = new ArrayList<>();
+
+        final List<FiniteSet<T>> s = new ArrayList<>();
+        final List<T> t = new ArrayList<>();
 
         for (var a : carrier) {
             for (var b : carrier) {
-                final FiniteSet<T> e = new ArrayFiniteSet<>(a, b);
-                s.add(e);
-                t.add(function.apply(a,b));
+                s.add(new ArrayFiniteSet<>(a, b));
+                t.add(function.apply(a, b));
             }
         }
-        final FiniteSet<FiniteSet<T>> source = new ArrayFiniteSet<>(s);
+
+        final FiniteSetProduct<T, FiniteSet<T>> source = FiniteSetProduct.of(null, s);
         final FiniteSet<T> target = new ArrayFiniteSet<>(t);
         composition = new ArrayFiniteMap<>(source, target);
     }
@@ -51,5 +52,21 @@ public class ArrayFiniteSemigroup<T> implements FiniteSemigroup<T> {
     @Override
     public FiniteMap<? extends FiniteSet<T>, T> composition() {
         return composition;
+    }
+
+    @Override
+    public String toString() {
+        final StringBuilder builder = new StringBuilder();
+
+        final String composition = this.composition.toString()
+                .lines()
+                .map(s -> "  " + s)
+                .collect(Collectors.joining("\n"));
+
+        builder.append("carrier:\n  ")
+                .append(carrier).append('\n')
+                .append("composition:\n")
+                .append(composition);
+        return builder.toString();
     }
 }

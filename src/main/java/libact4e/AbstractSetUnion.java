@@ -11,7 +11,7 @@ public abstract class AbstractSetUnion implements SetUnion {
 
         final StringBuilder builder = new StringBuilder().append("union:");
         for (Setoid<?> component : components) {
-            builder.append('\n').append("- ").append(component.toString());
+            builder.append('\n').append("  - ").append(component.toString());
         }
         return builder.toString();
     }

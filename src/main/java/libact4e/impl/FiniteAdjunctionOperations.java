@@ -9,10 +9,7 @@ import libact4e.utils.UnderDevelopment;
 public class FiniteAdjunctionOperations {
 
     public <K, T> FiniteAdjunction<K, T> fromRelation(FiniteRelation<K, T> relation) {
-        return new ArrayFiniteAdjunction<>(
-                new ArrayFiniteCategory<>(relation.source()),
-                new ArrayFiniteCategory<>(relation.target())
-        );
+        return null;
     }
 
     public <K, T> FiniteAdjunction<K, T> compose(
@@ -23,6 +20,6 @@ public class FiniteAdjunctionOperations {
     }
 
     public <K, T> boolean isAdjunction(FiniteFunctor<K, T> left, FiniteFunctor<K, T> right) {
-        return true;  // todo: implement
+        return true;
     }
 }

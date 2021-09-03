@@ -8,8 +8,8 @@ public interface FiniteAdjunction<K, T> {
 
     FiniteCategory<T> target();
 
-    FiniteFunctor<K, T> left(); // source -> target
+    FiniteFunctor<K, T> left();
 
-    FiniteFunctor<T, K> right(); // target -> source
+    FiniteFunctor<T, K> right();
 }
 
