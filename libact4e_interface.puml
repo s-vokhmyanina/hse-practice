@@ -1,0 +1,364 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+interface Category<T> {
+  + Setoid<T> objects()
+  + Setoid<T> hom(T,T)
+}
+
+interface EnumerableSet<T> {
+  + Iterator<T> iterator()
+  + Iterator<T> elements()
+  + boolean equals(T,T)
+  + boolean contains(T)
+  + boolean apart(T,T)
+  + Spliterator<T> spliterator()
+  + void forEach(Consumer<? super T>)
+}
+
+interface EnumerableSetUnion {
+  + List<? extends EnumerableSet<?>> components()
+}
+
+interface FiniteAdjunction<K,T> {
+  + FiniteCategory<T> target()
+  + FiniteCategory<K> source()
+  + FiniteFunctor<K, T> left()
+  + FiniteFunctor<T, K> right()
+}
+
+interface FiniteAdjunctionRepresentation {
+  + <K,T> FiniteAdjunction<K, T> load(FiniteAdjunctionRepresentation$FiniteAdjunctionDTO<K, T>)
+  + <K,T> FiniteAdjunctionRepresentation$FiniteAdjunctionDTO<K, T> save(FiniteAdjunction<K, T>)
+}
+
+interface FiniteCategory<T> {
+  + Setoid objects()
+  + FiniteSet<T> objects()
+  + FiniteSet<T> hom(T,T)
+  + Setoid hom(Object,Object)
+}
+
+interface FiniteDP<T> {
+  + FinitePoset<T> objects()
+}
+
+interface FiniteFunctor<K,T> {
+  + Category target()
+  + FiniteCategory<T> target()
+  + Category source()
+  + FiniteCategory<K> source()
+  + T call(K)
+}
+
+interface FiniteGroup<T> {
+  + FiniteMap<T, T> inverse()
+  + Mapping inverse()
+  + T identity()
+  + Setoid carrier()
+  + FiniteSet<T> carrier()
+  + FiniteMap<? extends FiniteSet<T>, T> composition()
+  + Mapping composition()
+}
+
+interface FiniteGroupRepresentation {
+  + <T> FiniteGroup<T> load(FiniteGroupRepresentation$FiniteGroupDto<T>)
+  + <T> FiniteGroupRepresentation$FiniteGroupDto<T> save(FiniteGroup<T>)
+}
+
+interface FiniteMap<K,T> {
+  + Setoid target()
+  + FiniteSet<T> target()
+  + Setoid source()
+  + FiniteSet<K> source()
+  + R apply(T)
+  + <V> Function<V, R> compose(Function<? super V, ? extends T>)
+  + <V> Function<T, V> andThen(Function<? super R, ? extends V>)
+}
+
+interface FiniteMapRepresentation {
+  + <K,T> FiniteMap<K, T> load(FiniteMapRepresentation$FiniteMapDto<K, T>)
+  + <K,T> FiniteMapRepresentation$FiniteMapDto<K, T> save(FiniteMap<K, T>)
+}
+
+interface FiniteMonoid<T> {
+  + T identity()
+  + Setoid carrier()
+  + FiniteSet<T> carrier()
+  + FiniteMap<? extends FiniteSet<T>, T> composition()
+  + Mapping composition()
+}
+
+interface FiniteMonoidalPoset<T> {
+  + FiniteMonoid<T> monoid()
+  + FinitePoset<T> poset()
+}
+
+interface FiniteMonoidRepresentation {
+  + <T> FiniteMonoid<T> load(FiniteMonoidRepresentation$FiniteMonoidDto<T>)
+  + <T> FiniteMonoidRepresentation$FiniteMonoidDto<T> save(FiniteMonoid<T>)
+}
+
+interface FiniteNaturalTransformation<K,T> {
+  + Category cat2()
+  + FiniteCategory<T> cat2()
+  + Category cat1()
+  + FiniteCategory<K> cat1()
+}
+
+interface FiniteNaturalTransformationRepresentation {
+  + <K,T> FiniteNaturalTransformation<K, T> load(FiniteNaturalTransformationRepresentation$FiniteNaturalTransformationDto<K, T>)
+  + <K,T> FiniteNaturalTransformationRepresentation$FiniteNaturalTransformationDto<K, T> save(FiniteNaturalTransformation<K, T>)
+}
+
+interface FinitePoset<T> {
+  + FiniteSet<T> carrier()
+  + Setoid carrier()
+}
+
+interface FinitePosetRepresentation {
+  + <T> FinitePoset<T> load(FinitePosetRepresentation$FinitePosetDTO<T>)
+  + <T> FinitePosetRepresentation$FinitePosetDTO<T> save(FinitePoset<T>)
+}
+
+interface FiniteRelation<K,T> {
+  + Setoid target()
+  + FiniteSet<T> target()
+  + Setoid source()
+  + FiniteSet<K> source()
+}
+
+interface FiniteRelationRepresentation {
+  + <K,T> FiniteRelation<K, T> load(FiniteRelationRepresentation$FiniteRelationDto<K, T>)
+  + <K,T> FiniteRelationRepresentation$FiniteRelationDto<K, T> save(FiniteRelation<K, T>)
+}
+
+interface FiniteSemiCategory<T> {
+  + Setoid objects()
+  + FiniteSet<T> objects()
+  + FiniteSet<T> hom(T,T)
+  + Setoid hom(Object,Object)
+}
+
+interface FiniteSemigroup<T> {
+  + Setoid carrier()
+  + FiniteSet<T> carrier()
+  + FiniteMap<? extends FiniteSet<T>, T> composition()
+  + Mapping composition()
+}
+
+interface FiniteSemigroupRepresentation {
+  + <T> FiniteSemigroup<T> load(FiniteSemigroupRepresentation$FiniteSemigroupDto<T>)
+  + <T> FiniteSemigroupRepresentation$FiniteSemigroupDto<T> save(FiniteSemigroup<T>)
+}
+
+interface FiniteSet<T> {
+  + T get(int)
+  + int indexOf(T)
+  + int size()
+  + List<T> toList()
+  + {static} <T> impl.ArrayFiniteSet<T> of(T...)
+  + {static} <T> FiniteSet<T> of(List<T>)
+  + Iterator<T> iterator()
+  + Iterator<T> elements()
+  + boolean equals(T,T)
+  + boolean contains(T)
+  + boolean apart(T,T)
+  + Spliterator<T> spliterator()
+  + void forEach(Consumer<? super T>)
+}
+
+interface FiniteSetProduct<T,C extends FiniteSet<T>> {
+  + {static} <T> FiniteSetProduct<T, FiniteSet<T>> of(BiFunction<T, T, T>,List<? extends FiniteSet<T>>)
+  + {static} <T> FiniteSetProduct<T, FiniteSet<T>> of(BiFunction<T, T, T>,FiniteSet<T>...)
+  + List<C> components()
+  + List<? extends FiniteMap<C, T>> projections()
+  + T pack(BiFunction<T, T, T>,T...)
+  + boolean equals(T,T)
+  + boolean contains(T)
+  + boolean apart(T,T)
+  + Iterator<T> iterator()
+  + Spliterator<T> spliterator()
+  + void forEach(Consumer<? super T>)
+  + T get(int)
+  + int indexOf(T)
+  + int size()
+  + List<T> toList()
+  + Iterator<T> elements()
+}
+
+interface FiniteSetRepresentation {
+  + <T> FiniteSet<T> load(FiniteSetRepresentation$FiniteSetDto<T>)
+  + <T> FiniteSetRepresentation$FiniteSetDto<T> save(FiniteSet<T>)
+}
+
+interface FiniteSetUnion {
+  + List<? extends FiniteSet<?>> components()
+}
+
+interface FreeSemigroup<T> {
+  + T unit(T)
+  + Setoid<T> carrier()
+  + Mapping<? extends Setoid<T>, T> composition()
+}
+
+interface Functor<K,T> {
+  + Category<T> target()
+  + Category<K> source()
+  + T call(K)
+}
+
+interface Group<T> {
+  + Mapping<T, T> inverse()
+  + T identity()
+  + Setoid<T> carrier()
+  + Mapping<? extends Setoid<T>, T> composition()
+}
+
+interface JoinSemilattice<T> {
+  + T join(T,T)
+  + T bottom()
+  + Setoid<T> carrier()
+}
+
+interface Lattice<T> {
+  + T join(T,T)
+  + T bottom()
+  + Setoid<T> carrier()
+  + T top()
+  + T meet(T,T)
+}
+
+interface MakeSetProduct {
+  + <T> SetProduct<T, Setoid<T>> product(BiFunction<T, T, T>,List<? extends Setoid<T>>)
+  + <T> FiniteSetProduct<T, FiniteSet<T>> finiteProduct(BiFunction<T, T, T>,List<? extends FiniteSet<T>>)
+}
+
+interface MakeSetUnion {
+  + FiniteSetUnion union(List<? extends Setoid<?>>)
+}
+
+interface Mapping<K,T> {
+  + Setoid<T> target()
+  + Setoid<K> source()
+  + R apply(T)
+  + <V> Function<V, R> compose(Function<? super V, ? extends T>)
+  + <V> Function<T, V> andThen(Function<? super R, ? extends V>)
+}
+
+interface MeetSemilattice<T> {
+  + T top()
+  + T meet(T,T)
+  + Setoid<T> carrier()
+}
+
+interface Monoid<T> {
+  + T identity()
+  + Setoid<T> carrier()
+  + Mapping<? extends Setoid<T>, T> composition()
+}
+
+interface MonotoneMap<K,T> {
+  + Poset<K> sourcePoset()
+  + Poset<T> targetPoset()
+  + Setoid<T> target()
+  + Setoid<K> source()
+  + R apply(T)
+  + <V> Function<V, R> compose(Function<? super V, ? extends T>)
+  + <V> Function<T, V> andThen(Function<? super R, ? extends V>)
+}
+
+interface Morphism<T> {
+  + Semigroup<T> func(Semigroup<T>)
+  + Monoid<T> func(Monoid<T>)
+  + Group<T> func(Group<T>)
+}
+
+interface NaturalTransformation<K,T> {
+  + Category<T> cat2()
+  + Category<K> cat1()
+}
+
+interface Poset<T> {
+  + Setoid<T> carrier()
+}
+
+interface Relation<K,T> {
+  + Setoid<T> target()
+  + Setoid<K> source()
+}
+
+interface RupeGoldbergSolver {
+  + Solution push(List<Component>,float)
+  + Solution hangthem(List<Component>)
+  + Solution pull(List<Component>,float)
+}
+
+interface SemiCategory<T> {
+  + Setoid<T> objects()
+  + Setoid<T> hom(T,T)
+}
+
+interface Semigroup<T> {
+  + Setoid<T> carrier()
+  + Mapping<? extends Setoid<T>, T> composition()
+}
+
+interface Setoid<T> {
+  + boolean equals(T,T)
+  + boolean contains(T)
+  + boolean apart(T,T)
+  + Iterator<T> iterator()
+  + Spliterator<T> spliterator()
+  + void forEach(Consumer<? super T>)
+}
+
+interface SetProduct<T,C extends Setoid<T>> {
+  + List<C> components()
+  + List<? extends Mapping<C, T>> projections()
+  + T pack(BiFunction<T, T, T>,T...)
+  + boolean equals(T,T)
+  + boolean contains(T)
+  + boolean apart(T,T)
+  + Iterator<T> iterator()
+  + Spliterator<T> spliterator()
+  + void forEach(Consumer<? super T>)
+}
+
+interface SetUnion {
+  + List<? extends Setoid<?>> components()
+}
+
+Category --|> SemiCategory
+EnumerableSet --|> Setoid
+EnumerableSetUnion --|> SetUnion
+FiniteCategory --|> FiniteSemiCategory
+FiniteCategory --|> Category
+FiniteFunctor --|> Functor
+FiniteGroup --|> Group
+FiniteGroup --|> FiniteMonoid
+FiniteMap --|> Mapping
+FiniteMonoid --|> Monoid
+FiniteMonoid --|> FiniteSemigroup
+FiniteNaturalTransformation --|> NaturalTransformation
+FinitePoset --|> Poset
+FiniteRelation --|> Relation
+FiniteSemiCategory --|> SemiCategory
+FiniteSemigroup --|> Semigroup
+FiniteSet --|> EnumerableSet
+FiniteSetProduct --|> SetProduct
+FiniteSetProduct --|> FiniteSet
+FiniteSetUnion --|> EnumerableSetUnion
+FreeSemigroup --|> Semigroup
+Group --|> Monoid
+JoinSemilattice --|> Poset
+Lattice --|> JoinSemilattice
+Lattice --|> MeetSemilattice
+Mapping --|> Function
+MeetSemilattice --|> Poset
+Monoid --|> Semigroup
+MonotoneMap --|> Mapping
+Setoid --|> Iterable
+SetProduct --|> Setoid
+
+@enduml
