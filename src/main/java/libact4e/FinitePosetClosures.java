@@ -1,6 +1,5 @@
-package libact4e.impl;
+package libact4e;
 
-import libact4e.FinitePoset;
 import java.util.List;
 import libact4e.utils.UnderDevelopment;
 
